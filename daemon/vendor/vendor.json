@@ -14,6 +14,42 @@
 			"revisionTime": "2018-04-20T11:04:05Z"
 		},
 		{
+			"checksumSHA1": "01dE5shJRxXaBGdlZtQ9h0REpdA=",
+			"path": "github.com/golang/groupcache",
+			"revision": "24b0969c4cb722950103eed87108c8d291a8df00",
+			"revisionTime": "2018-05-13T04:43:58Z"
+		},
+		{
+			"checksumSHA1": "3KR3qbG0izQxxsSgDon+RNTS0eg=",
+			"path": "github.com/golang/groupcache/consistenthash",
+			"revision": "24b0969c4cb722950103eed87108c8d291a8df00",
+			"revisionTime": "2018-05-13T04:43:58Z"
+		},
+		{
+			"checksumSHA1": "84cSsQkE213Kh38UO/CBlIRaTgM=",
+			"path": "github.com/golang/groupcache/groupcachepb",
+			"revision": "24b0969c4cb722950103eed87108c8d291a8df00",
+			"revisionTime": "2018-05-13T04:43:58Z"
+		},
+		{
+			"checksumSHA1": "nbCxiVT48CWEg6l8L4SEJ5VfN9c=",
+			"path": "github.com/golang/groupcache/lru",
+			"revision": "24b0969c4cb722950103eed87108c8d291a8df00",
+			"revisionTime": "2018-05-13T04:43:58Z"
+		},
+		{
+			"checksumSHA1": "sMvq+9MMLxs/UUdbScCycbg2S9U=",
+			"path": "github.com/golang/groupcache/singleflight",
+			"revision": "24b0969c4cb722950103eed87108c8d291a8df00",
+			"revisionTime": "2018-05-13T04:43:58Z"
+		},
+		{
+			"checksumSHA1": "WX1+2gktHcBmE9MGwFSGs7oqexU=",
+			"path": "github.com/golang/protobuf/proto",
+			"revision": "e09c5db296004fbe3f74490e84dcd62c3c5ddb1b",
+			"revisionTime": "2018-03-28T16:31:53Z"
+		},
+		{
 			"checksumSHA1": "JeD0XcHmFqzFNdliHaylHuxiZkI=",
 			"path": "github.com/kardianos/service",
 			"revision": "615a14ed75099c9eaac6949e22ac2341bf9d3197",
@@ -66,6 +102,12 @@
 			"path": "github.com/valyala/fasthttp/stackless",
 			"revision": "e5f51c11919d4f66400334047b897ef0a94c6f3c",
 			"revisionTime": "2017-12-07T12:09:41Z"
+		},
+		{
+			"checksumSHA1": "GtamqiJoL7PGHsN454AoffBFMa8=",
+			"path": "golang.org/x/net/context",
+			"revision": "61147c48b25b599e5b561d2e9c4f3e1ef489ca41",
+			"revisionTime": "2017-03-19T02:15:06Z"
 		},
 		{
 			"checksumSHA1": "Dfz4tGItokMvHZENCsBmPPB8FGQ=",
