@@ -8,6 +8,12 @@
 			"revision": ""
 		},
 		{
+			"checksumSHA1": "vZ1mH7ddAGWp3+GT0/Oi8UpJLgM=",
+			"path": "github.com/flier/gohs/hyperscan",
+			"revision": "c75990e3faec0285c7f5f00ded8011dda062df86",
+			"revisionTime": "2018-04-20T11:04:05Z"
+		},
+		{
 			"checksumSHA1": "JeD0XcHmFqzFNdliHaylHuxiZkI=",
 			"path": "github.com/kardianos/service",
 			"revision": "615a14ed75099c9eaac6949e22ac2341bf9d3197",
