@@ -93,66 +93,37 @@ func main() {
 		}
 	}
 
+	/* 1. create hs pattern */
 	pattern := hyperscan.NewPattern(flag.Arg(0), hyperscan.DotAll|hyperscan.SomLeftMost)
 	inputFN := flag.Arg(1)
 
-	/* First, we attempt to compile the pattern provided on the command line.
-	 * We assume 'DOTALL' semantics, meaning that the '.' meta-character will
-	 * match newline characters. The compiler will analyse the given pattern and
-	 * either return a compiled Hyperscan database, or an error message
-	 * explaining why the pattern didn't compile.
-	 */
+	/* 2. create hs database */
 	database, err := hyperscan.NewBlockDatabase(pattern)
-
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "ERROR: Unable to compile pattern \"%s\": %s\n", pattern.String(), err.Error())
 		os.Exit(-1)
 	}
-
 	defer database.Close()
 
-	/* Next, we read the input data file into a buffer. */
 	inputData, err := ioutil.ReadFile(inputFN)
-
 	if err != nil {
 		os.Exit(-1)
 	}
 
-	/* Finally, we issue a call to hs_scan, which will search the input buffer
-	 * for the pattern represented in the bytecode. Note that in order to do
-	 * this, scratch space needs to be allocated with the hs_alloc_scratch
-	 * function. In typical usage, you would reuse this scratch space for many
-	 * calls to hs_scan, but as we're only doing one, we'll be allocating it
-	 * and deallocating it as soon as our matching is done.
-	 *
-	 * When matches occur, the specified callback function (eventHandler in
-	 * this file) will be called. Note that although it is reminiscent of
-	 * asynchronous APIs, Hyperscan operates synchronously: all matches will be
-	 * found, and all callbacks issued, *before* hs_scan returns.
-	 *
-	 * In this example, we provide the input pattern as the context pointer so
-	 * that the callback is able to print out the pattern that matched on each
-	 * match event.
-	 */
+	/* 3. create hs scratch */
 	scratch, err := hyperscan.NewScratch(database)
-
 	if err != nil {
 		fmt.Fprint(os.Stderr, "ERROR: Unable to allocate scratch space. Exiting.\n")
 		os.Exit(-1)
 	}
-
 	defer scratch.Free()
-
 	fmt.Printf("Scanning %d bytes with Hyperscan\n", len(inputData))
 
+	/* 4. hs scan */
 	if err := database.Scan(inputData, scratch, eventHandler, inputData); err != nil {
 		fmt.Fprint(os.Stderr, "ERROR: Unable to scan input buffer. Exiting.\n")
 		os.Exit(-1)
 	}
-
-	/* Scanning is complete, any matches have been handled, so now we just
-	 * clean up and exit.
-	 */
 
 	return
 }
